@@ -1,18 +1,17 @@
-const express = require('express')
-const bodyParser = require('body-parser');
+const express = require("express");
 
 // import API
-const userApi = require('./routes/users')
+const userApi = require("./routes/users");
 
-require('./config/connect')
+require("./config/connect");
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.use('/user' ,userApi)
-app.use(bodyParser.json());
+app.use("/user", userApi);
 
-
-app.listen(5000, () => {
-    console.log('Server alive...');
-})
+app.listen(4200, () => {
+  console.log("Server alive...");
+});

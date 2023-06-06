@@ -1,5 +1,5 @@
 const express = require("express");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 const router = express.Router();
 
@@ -8,13 +8,11 @@ const Users = require("../models/users");
 router.post("/register", (req, res) => {
 
   let data = req.body;
-  console.log(req.body);
-  console.log(data);
   let user = new Users(data);
   
-  /* salt = bcrypt.genSaltSync(10);
+  
+  salt = bcrypt.genSaltSync(10);
   user.password = bcrypt.hashSync(data.password, salt);
- */
   user
     .save()
     .then((savedUser) => {
@@ -23,6 +21,7 @@ router.post("/register", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+    
 });
 
 router.post("/login", (req, res) => {});
