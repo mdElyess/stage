@@ -51,10 +51,4 @@ router.post("/login", (req, res) => {
     )
 });
 
-router.get("/all", (req, res) => {});
-
-router.get("/getbyid/:id", (req, res) => {});
-
-router.put("/update/:id", (req, res) => {});
-
 module.exports = router;
